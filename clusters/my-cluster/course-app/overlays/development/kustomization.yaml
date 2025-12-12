@@ -38,6 +38,7 @@ patches:
         path: /spec
         value: 
           replicas: 1
+          
       - op: replace
           path: /metadata
           value:
