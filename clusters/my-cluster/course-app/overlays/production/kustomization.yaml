@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
  - HPA.yaml
  - deployment.yaml
- - ./overlays/dragonfly.yaml
+ - ./../dragonfly.yaml
 patches:
   - target:
       kind: Deployment
