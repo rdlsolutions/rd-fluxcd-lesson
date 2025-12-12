@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ./../../base
+  - ./../../base/deployment.yaml
   - ./../dragonfly.yaml
 patches:
 
@@ -9,7 +9,6 @@ patches:
       kind: Deployment
       name: course-app       
     patch: |-
-      - op: replace
           env:
             - name: APP_MESSAGE
               value: "Welcome to the Development Environment"
@@ -24,7 +23,6 @@ patches:
       kind: Deployment
       name: course-app
     patch: |-
-      - op: replace
       spec:
         replicas: 1   
 
@@ -32,20 +30,17 @@ patches:
       kind: Deployment
       name: course-app
     patch: |-    
-      - op: replace    
       metadata:
         namespace: development
 
   - target:
       kind: Dragonfly
     patch: |-
-      - op: replace
       spec:
         replicas: 1   
 
   - target:
       kind: Dragonfly
-    patch: |-       
-      - op: replace
+    patch: |-      
       metadata: 
         namespace: development
