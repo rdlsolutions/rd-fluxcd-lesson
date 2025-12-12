@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - HPA.yaml
   - ../../base
-  - ../dragonfly.yaml
+  - dragonfly.yaml
 patches:
 
   - patch: |-
