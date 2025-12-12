@@ -17,23 +17,27 @@ patches:
           value: "dragonfly-app.development.svc.cluster.local:6379/0"
           name: REDIS_PORT
           value: "6379"
+
   - target:
       kind: Deployment
       name: course-app
     patch: |-
       spec:
         replicas: 1   
+
   - target:
       kind: Deployment
       name: course-app
     patch: |-        
       metadata:
         namespace: development
+
   - target:
       kind: Dragonfly
     patch: |-
       spec:
         replicas: 1   
+        
   - target:
       kind: Dragonfly
     patch: |-       
