@@ -13,13 +13,13 @@ patches:
         replicas: 3   
         namespace: production
         env:
-          name: APP_MESSAGE
+          - name: APP_MESSAGE
           value: Welcome to the Development Environment
-          name: APP_STORE
+          - name: APP_STORE
           value: dragonfly
-          name: APP_REDIS_URL
+          - name: APP_REDIS_URL
           value: dragonfly-app.development.svc.cluster.local:6379
-          name: REDIS_PORT
+          - name: REDIS_PORT
           value: "6379"
           resources:
             requests:
