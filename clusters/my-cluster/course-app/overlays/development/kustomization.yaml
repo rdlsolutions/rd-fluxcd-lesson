@@ -20,9 +20,11 @@ patches:
               value: "dragonfly-app.development.svc.cluster.local:6379/0"
             - name: REDIS_PORT
               value: "6379"
+
         - op: replace
           path: /spec/replicas
-          value:1
+          value: 1
+
         - op: replace
           path: /metadata/namespace
           value: development
