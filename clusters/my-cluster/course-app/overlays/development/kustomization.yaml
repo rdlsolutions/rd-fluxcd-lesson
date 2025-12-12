@@ -35,12 +35,12 @@ patches:
       kind: Dragonfly
       name: dragonfly-app
     patch: |
-      - op: replace
-        path: /spec
-        value: 
-          replicas: 1
+        - op: replace
+          path: /spec
+          value: 
+            replicas: 1
 
-      - op: replace
+        - op: replace
           path: /metadata
           value:
             namespace: development
