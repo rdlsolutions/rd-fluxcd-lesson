@@ -4,7 +4,7 @@ metadata:
   name: my-cluster-dev
   namespace: flux-system
 spec:
-  interval: 10m0s 
+  interval: 1m0s 
   path: development  
   prune: true
   sourceRef:
