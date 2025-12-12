@@ -10,7 +10,7 @@ patches:
     patch: |-
       spec:
         replicas: 3   
-        namespace: prodactions
+        namespace: production
         env:
           name: APP_MESSAGE
           value: "Welcome to the Production Environment"
@@ -32,6 +32,6 @@ patches:
       kind: Dragonfly
     patch: |-
       metadata:       
-        namespace: prodactions    
+        namespace: production    
       spec:
         replicas: 3
