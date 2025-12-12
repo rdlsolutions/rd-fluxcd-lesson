@@ -17,7 +17,7 @@ patches:
         - name: APP_STORE
           value: dragonfly
         - name: APP_DRAGONFLY_URL
-          value: "dragonfly-app.mod04-less13.svc.cluster.local:6379"
+          value: "dragonfly-app.prodactions.svc.cluster.local:6379"
         - name: DRAGONFLY_PORT
           value: "6379"
         resources:
