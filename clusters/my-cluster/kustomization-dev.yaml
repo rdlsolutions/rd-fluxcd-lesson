@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s 
-  path: ../course-app/overlays/development  
+  path: course-app/overlays/development  
   prune: true
   sourceRef:
     kind: GitRepository
