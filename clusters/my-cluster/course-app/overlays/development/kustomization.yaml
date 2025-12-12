@@ -7,20 +7,6 @@ patches:
 
   - target:
       kind: Deployment
-      name: course-app       
-    patch: |-
-          env:
-            - name: APP_MESSAGE
-              value: "Welcome to the Development Environment"
-            - name: APP_STORE
-              value: dragonfly
-            - name: APP_REDIS_URL
-              value: "dragonfly-app.development.svc.cluster.local:6379/0"
-            - name: REDIS_PORT
-              value: "6379"
-
-  - target:
-      kind: Deployment
       name: course-app
     patch: |-
       spec:
