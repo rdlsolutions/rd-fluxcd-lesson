@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s 
-  path: ../../production/kustomization.yaml 
+  path: ../../../production/kustomization.yaml 
   prune: true
   sourceRef:
     kind: GitRepository
