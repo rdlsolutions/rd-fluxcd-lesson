@@ -7,6 +7,7 @@ resources:
 patches:
   - target:
       kind: Deployment
+      name: course-app
     patch: |-
       spec:
         replicas: 3   
