@@ -8,39 +8,31 @@ patches:
   - target:
       kind: Deployment
       name: course-app       
-    patch: |-
-              - env:
-                - name: APP_MESSAGE
-                  value: "Welcome to the Development Environment"
-                - name: APP_STORE
-                  value: dragonfly
-                - name: APP_REDIS_URL
-                  value: "dragonfly-app.development.svc.cluster.local:6379/0"
-                - name: REDIS_PORT
-                  value: "6379"
-
-  - target:
-      kind: Deployment
-      name: course-app
-    patch: |-
-      spec:
-        replicas: 1   
-
-  - target:
-      kind: Deployment
-      name: course-app
-    patch: |-    
-      metadata:
-        namespace: development
+    patch: |
+        - op: replace
+          path: /spec/template/spec/containers/0/env
+          value:
+            - name: APP_MESSAGE
+              value: "Welcome to the Development Environment"
+            - name: APP_STORE
+              value: dragonfly
+            - name: APP_REDIS_URL
+              value: "dragonfly-app.development.svc.cluster.local:6379/0"
+            - name: REDIS_PORT
+              value: "6379"
+        - op: replace
+          path: /spec/replicas
+          value:1
+        - op: replace
+          path: /metadata/namespace
+          value: development
 
   - target:
       kind: Dragonfly
-    patch: |-
-      spec:
-        replicas: 1   
-
-  - target:
-      kind: Dragonfly
-    patch: |-      
-      metadata: 
-        namespace: development
+    patch: |
+      - op: replace
+        path: /spec/replicas
+        value: 1
+      - op: replace
+        path: /metadata/namespace
+        value: development
