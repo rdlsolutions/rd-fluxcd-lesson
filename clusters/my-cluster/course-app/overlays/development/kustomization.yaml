@@ -8,9 +8,6 @@ patches:
       kind: Deployment
       name: course-app       
     patch: |-
-      spec:
-        replicas: 1   
-        namespace: development
         env:
           - name: APP_MESSAGE
           value: "Welcome to the Development Environment"
@@ -21,8 +18,24 @@ patches:
           - name: REDIS_PORT
           value: "6379"
   - target:
+      kind: Deployment
+      name: course-app
+    patch: |-
+      spec:
+        replicas: 1   
+  - target:
+      kind: Deployment
+      name: course-app
+    patch: |-        
+      metadata:
+        namespace: development
+  - target:
       kind: Dragonfly
     patch: |-
       spec:
         replicas: 1   
+  - target:
+      kind: Dragonfly
+    patch: |-       
+      metadata: 
         namespace: development
