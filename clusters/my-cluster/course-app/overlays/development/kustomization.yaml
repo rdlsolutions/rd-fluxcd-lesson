@@ -10,14 +10,14 @@ patches:
       spec:
         replicas: 1   
         namespace: development
-      env:
-        - name: APP_MESSAGE
+        env:
+          name: APP_MESSAGE
           value: "Welcome to the Development Environment"
-        - name: APP_STORE
+        name: APP_STORE
           value: dragonfly
-        - name: APP_DRAGONFLY_URL
+        name: APP_DRAGONFLY_URL
           value: "dragonfly-app.development.svc.cluster.local:6379"
-        - name: DRAGONFLY_PORT
+        name: DRAGONFLY_PORT
           value: "6379"
   - target:
       kind: Dragonfly
