@@ -5,21 +5,18 @@ resources:
   - ./../../base
   - ./../dragonfly.yaml
 patches:
-  - target:
-      kind: Deployment
-      name: course-app
-    patch: |-
+  - patch: |-
       spec:
         replicas: 3   
         namespace: production
         env:
-          - name: APP_MESSAGE
+          name: APP_MESSAGE
           value: "Welcome to the Production Environment"
-          - name: APP_STORE
+          name: APP_STORE
           value: dragonfly
-          - name: APP_REDIS_URL
+          name: APP_REDIS_URL
           value: "dragonfly-app.production.svc.cluster.local:6379/0"
-          - name: REDIS_PORT
+          name: REDIS_PORT
           value: "6379"
           resources:
             requests:
@@ -28,7 +25,10 @@ patches:
             limits:
               cpu: "1"
               memory: "1Gi"  
-
+    target:
+      kind: Deployment
+      name: course-app
+    
   - target:
       kind: Dragonfly
     patch: |-
