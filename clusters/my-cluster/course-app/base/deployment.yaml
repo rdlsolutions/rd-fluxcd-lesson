@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: course-app-deployment
-  namespace: mod04-less13
   labels:
     app: course-app
 spec:
