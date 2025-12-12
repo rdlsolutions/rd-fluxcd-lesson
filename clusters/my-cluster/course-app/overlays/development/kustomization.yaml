@@ -16,9 +16,9 @@ patches:
           value: Welcome to the Development Environment
           name: APP_STORE
           value: dragonfly
-          name: APP_DRAGONFLY_URL
+          name: APP_REDIS_URL
           value: dragonfly-app.development.svc.cluster.local:6379
-          name: DRAGONFLY_PORT
+          name: REDIS_PORT
           value: "6379"
   - target:
       kind: Dragonfly

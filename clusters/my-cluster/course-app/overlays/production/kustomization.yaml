@@ -14,12 +14,12 @@ patches:
         namespace: production
         env:
           name: APP_MESSAGE
-          value: Welcome to the Production Environment
+          value: Welcome to the Development Environment
           name: APP_STORE
           value: dragonfly
-          name: APP_DRAGONFLY_URL
-          value: dragonfly-app.production.svc.cluster.local:6379
-          name hon : DRAGONFLY_PORT
+          name: APP_REDIS_URL
+          value: dragonfly-app.development.svc.cluster.local:6379
+          name: REDIS_PORT
           value: "6379"
           resources:
             requests:
