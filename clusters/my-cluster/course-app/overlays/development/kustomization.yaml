@@ -22,19 +22,23 @@ patches:
               value: "6379"
 
         - op: replace
-          path: /spec/replicas
-          value: 1
+          path: /spec
+          value: 
+            replicas: 1
 
         - op: replace
-          path: /metadata/namespace
-          value: development
+          path: /metadata
+          value:
+            namespace: development
 
   - target:
       kind: Dragonfly
     patch: |
       - op: replace
-        path: /spec/replicas
-        value: 1
+        path: /spec
+        value: 
+          replicas: 1
       - op: replace
-        path: /metadata/namespace
-        value: development
+          path: /metadata
+          value:
+            namespace: development
