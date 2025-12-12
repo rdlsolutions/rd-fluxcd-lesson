@@ -2,7 +2,7 @@
   kind: HorizontalPodAutoscaler
   metadata:
     labels:
-      environment: production
+      environment: productions
     name: course-app-hpa
     namespace: prodactions
   spec:
