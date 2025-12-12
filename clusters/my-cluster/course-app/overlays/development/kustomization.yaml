@@ -26,7 +26,7 @@ patches:
           value: 
             replicas: 1
 
-        - op: replace
+        - op: add
           path: /metadata
           value:
             namespace: development
