@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - HPA.yaml
   - ../../base
-  - dragonfly.yaml
+  - ../dragonfly.yaml
 patches:
 
   - target:
@@ -40,7 +40,8 @@ patches:
         - op: add
           path: /metadata
           value:
-            namespace: production 
+            namespace: production
+            name: course-app-production 
 
   - target:
       kind: Dragonfly
