@@ -7,6 +7,13 @@ resources:
 patches:
 
   - target:
+      kind: HorizontalPodAutoscaler   
+    patch: |
+        - op: replace
+          path: /spec/scaleTargetRef/name
+          value: course-app-production
+
+  - target:
       kind: Service   
     patch: |
         - op: replace
