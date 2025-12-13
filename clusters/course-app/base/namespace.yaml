@@ -1,5 +1,4 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Namespace
 metadata:
-  namespace: mod04-less13
-  name: course-app
+  name: mod04-less13

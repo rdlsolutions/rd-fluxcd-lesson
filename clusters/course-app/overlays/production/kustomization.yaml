@@ -12,8 +12,7 @@ patches:
         - op: replace
           path: /metadata
           value:
-            namespace: production
-            name: app-prod
+            name: production
 
   - target:
       kind: Deployment    

@@ -11,8 +11,7 @@ patches:
         - op: replace
           path: /metadata
           value:
-            namespace: development
-            name: app-dev
+            name: development
 
   - target:
       kind: Deployment 
