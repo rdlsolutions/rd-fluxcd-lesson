@@ -2,7 +2,6 @@
 
 Мета: Реалізувати повний GitOps-цикл: від створення репозиторію до автоматичного розгортання мульти-середовищного кластера за допомогою Flux CD
 
-
 ## Етап 1: Підготовка інфраструктури
 
 Створіть новий публічний репозиторій на GitHub з назвою rd-fluxcd-lesson. Він має бути пустим (або з README).
@@ -24,9 +23,7 @@ flux bootstrap github \
 
  --personal
 
-
 `flux bootstrap github --owner=rdlsolutions  --repository=rd-fluxcd-lesson  --branch=main  --path=./clusters/my-cluster  --personal`
-
 
 Після цього кроку у вашому репозиторії автоматично з'явиться папка clusters/my-cluster з системними маніфестами Flux
 
@@ -55,7 +52,6 @@ kustomization.yaml, що об'єднує їх.
 (Важливо) Вважаємо, що Dragonfly Operator вже встановлений у кластері вручну з минулого уроку. Можна також встановити через Flux (опціональне завдання нижче)
 Опціонально: Якщо хочете "чистий" GitOps, налаштуйте встановлення самого Dragonfly Operator через Flux. Для цього в окремій папці (наприклад infrastructure/controllers/dragonfly) створіть HelmRepository (джерело чарту оператора) та HelmRelease (інсталяція оператора).
 
-
 ## Етап 4: Середовище Production (Overlay)
 
 Створіть оверлей для production.
@@ -68,8 +64,6 @@ kustomization.yaml, що об'єднує їх.
 Resources & Autoscaling:
 Додайте Requests/Limits для CPU та Memory у Deployment.
 Описав HorizontalPodAutoscaler (HPA), який масштабує под від 3 до 10 копій в HPA.yaml.
-
-
 
 ## Етап 5: "Вмикаємо" GitOps
 
@@ -91,10 +85,18 @@ Resources & Autoscaling:
 Drift Check: Якщо видалити сервіс у production руками (kubectl delete svc ...), Flux має відновити його протягом хвилини.
 
 
-Формат здачі: Посилання на ваш публічний репозиторій rd-fluxcd-lesson
+## Формат здачі: Посилання на ваш публічний репозиторій rd-fluxcd-lesson
 
 Скриншоти, де видно що:
 
-ресурс Kustomization та GitRepository в статусі Ready
-в неймспейсі development та production відрізняється кількість подів
-в production є додаткові ресурси, які були описані в overlay
+### ресурс Kustomization та GitRepository в статусі Ready
+
+![alt text](clusters/img/status-ready.png)
+
+### в неймспейсі development та production відрізняється кількість подів
+
+![alt text](clusters/img/diff-pod.png)
+
+### в production є додаткові ресурси, які були описані в overlay
+
+![alt text](clusters/img/differents.png)
