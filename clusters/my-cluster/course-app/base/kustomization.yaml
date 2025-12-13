@@ -4,7 +4,7 @@ resources:
 - deployment.yaml
 - service.yaml
 - ingress.yaml
-namespace: mod04-less13
+- namespace.yaml
 commonLabels:
   app: course-app
 images:

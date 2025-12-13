@@ -6,6 +6,15 @@ resources:
 patches:
 
   - target:
+      kind: Namespace
+      name: course-app       
+    patch: |
+        - op: replace
+          path: /metadata
+          value:
+            namespace: development
+
+  - target:
       kind: Deployment
       name: course-app       
     patch: |
