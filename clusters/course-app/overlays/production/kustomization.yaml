@@ -7,6 +7,24 @@ resources:
 patches:
 
   - target:
+      kind: Service   
+    patch: |
+        - op: replace
+          path: /metadata/namespace
+          value: production
+          
+        - op: replace
+          path: /metadata/labels/app
+          value: course-app-production
+
+  - target:
+      kind: Ingress   
+    patch: |
+        - op: replace
+          path: /metadata/namespace
+          value: production
+
+  - target:
       kind: Namespace    
     patch: |
         - op: replace
@@ -30,19 +48,19 @@ patches:
           value: "dragonfly-app.production.svc.cluster.local:6379/0"
 
         - op: replace
-          path: /spec/template/spec/containers/resources/requests/cpu
-          value: "500m"
+          path: /spec/template/spec/containers/0/resources/requests/cpu
+          value: "100m"
 
         - op: replace
-          path: /spec/template/spec/containers/resources/requests/memory
+          path: /spec/template/spec/containers/0/resources/requests/memory
           value: "512Mi"
 
         - op: replace
-          path: /spec/template/spec/containers/resources/limits/cpu
+          path: /spec/template/spec/containers/0/resources/limits/cpu
           value: "1"
 
         - op: replace
-          path: /spec/template/spec/containers/resources/limits/memory
+          path: /spec/template/spec/containers/0/resources/limits/memory
           value: "1Gi"       
     
         - op: replace

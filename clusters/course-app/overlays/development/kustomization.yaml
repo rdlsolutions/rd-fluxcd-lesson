@@ -6,6 +6,24 @@ resources:
 patches:
 
   - target:
+      kind: Service   
+    patch: |
+        - op: replace
+          path: /metadata/namespace
+          value: development
+          
+        - op: replace
+          path: /metadata/labels/app
+          value: course-app-development
+
+  - target:
+      kind: Ingress   
+    patch: |
+        - op: replace
+          path: /metadata/namespace
+          value: development
+
+  - target:
       kind: Namespace   
     patch: |
         - op: replace
