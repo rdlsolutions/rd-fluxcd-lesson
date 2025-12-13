@@ -30,25 +30,32 @@ patches:
           value: "dragonfly-app.production.svc.cluster.local:6379/0"
 
         - op: replace
-          path: /spec/template/spec/containers/resources
-          value:
-            requests:
-              cpu: "500m"
-              memory: "512Mi" 
-            limits:
-              cpu: "1"
-              memory: "1Gi"       
+          path: /spec/template/spec/containers/resources/requests/cpu
+          value: "500m"
+
+        - op: replace
+          path: /spec/template/spec/containers/resources/requests/memory
+          value: "512Mi"
+
+        - op: replace
+          path: /spec/template/spec/containers/resources/limits/cpu
+          value: "1"
+
+        - op: replace
+          path: /spec/template/spec/containers/resources/limits/memory
+          value: "1Gi"       
     
         - op: replace
-          path: /spec
-          value: 
-            replicas: 2
+          path: /spec/replicas
+          value: 2
 
         - op: add
-          path: /metadata
-          value:
-            namespace: production
-            name: course-app-production 
+          path: /metadata/namespace
+          value: production
+          
+        - op: add
+          path: /metadata/name
+          value: course-app-production
 
   - target:
       kind: Dragonfly

@@ -9,9 +9,8 @@ patches:
       kind: Namespace   
     patch: |
         - op: replace
-          path: /metadata
-          value:
-            name: development
+          path: /metadata/name
+          value: development
 
   - target:
       kind: Deployment 
@@ -19,7 +18,7 @@ patches:
         - op: replace
           path: /spec/template/spec/containers/0/env/1/value
           value: "Welcome to the Development Environment"
-          
+
         - op: replace
           path: /spec/template/spec/containers/0/env/2/value
           value: dragonfly
@@ -29,26 +28,29 @@ patches:
           value: "dragonfly-app.development.svc.cluster.local:6379/0"
 
         - op: replace
-          path: /spec
-          value: 
-            replicas: 1
+          path: /spec/replicas
+          value: 1
 
         - op: add
-          path: /metadata
-          value:
-            namespace: development
-            name: course-app-development
+          path: /metadata/namespace 
+          value:  development
+
+        - op: add
+          path: /metadata/name
+          value: course-app-development 
 
   - target:
       kind: Dragonfly
     patch: |
         - op: replace
-          path: /spec
-          value: 
-            replicas: 1
+          path: /spec/replicas
+          value: 1
 
         - op: replace
-          path: /metadata
-          value:
-            namespace: development
-            name: dragonfly-dev
+          path: /metadata/name
+          value: dragonfly-dev
+
+        - op: replace
+          path: /metadata/namespace
+          value: development
+
