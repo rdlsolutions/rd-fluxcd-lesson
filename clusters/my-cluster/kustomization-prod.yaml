@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s 
-  path: "./course-app/overlays/production/kustomization.yaml"
+  path: "./clusters/course-app/overlays/production/kustomization.yaml"
   prune: true
   sourceRef:
     kind: GitRepository

@@ -73,7 +73,7 @@ Resources & Autoscaling:
 
 ## Етап 5: "Вмикаємо" GitOps
 
-![alt text](clusters/img/dir-project.png)
+![alt text](clusters/img/app-dir.png)
 
 На даному етапі у вас просто лежать файли в репозиторії. Flux про них ще не знає (він знає тільки про системну папку clusters/my-cluster).
 
