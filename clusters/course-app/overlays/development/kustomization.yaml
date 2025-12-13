@@ -6,8 +6,7 @@ resources:
 patches:
 
   - target:
-      kind: Namespace
-      name: course-app       
+      kind: Namespace   
     patch: |
         - op: replace
           path: /metadata
@@ -15,8 +14,7 @@ patches:
             namespace: development
 
   - target:
-      kind: Deployment
-      name: course-app       
+      kind: Deployment 
     patch: |
         - op: replace
           path: /spec/template/spec/containers/0/env
@@ -43,7 +41,6 @@ patches:
 
   - target:
       kind: Dragonfly
-      name: dragonfly-app
     patch: |
         - op: replace
           path: /spec
