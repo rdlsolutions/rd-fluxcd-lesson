@@ -4,7 +4,7 @@
     labels:
       environment: productions
     name: course-app-hpa
-    namespace: prodaction
+    namespace: production
   spec:
     maxReplicas: 10
     metrics:
