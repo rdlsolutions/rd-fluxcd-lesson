@@ -63,3 +63,4 @@ patches:
           path: /metadata
           value:
             namespace: production
+            name: dragonfly-prod
