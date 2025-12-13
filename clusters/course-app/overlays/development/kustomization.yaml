@@ -17,7 +17,7 @@ patches:
       kind: Deployment 
     patch: |
         - op: replace
-          path: /spec/template/spec/containers/0/env
+          path: /spec/template/spec/containers/env
           value:
             - name: APP_MESSAGE
               value: "Welcome to the Development Environment"
