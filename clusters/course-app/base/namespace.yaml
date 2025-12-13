@@ -2,3 +2,4 @@ apiVersion: apps/v1
 kind: Namespace
 metadata:
   namespace: mod04-less13
+  name: course-app
