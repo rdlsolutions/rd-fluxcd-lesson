@@ -18,16 +18,16 @@ patches:
       kind: Deployment    
     patch: |
         - op: replace
-          path: /spec/template/spec/containers/env
-          value:
-            - name: APP_MESSAGE
-              value: "Welcome to the Production Environment"
-            - name: APP_STORE
-              value: dragonfly
-            - name: APP_REDIS_URL
-              value: "dragonfly-app.production.svc.cluster.local:6379/0"
-            - name: REDIS_PORT
-              value: "6379"
+          path: /spec/template/spec/containers/0/env/1/value
+          value: "Welcome to the Production Environment"
+
+        - op: replace
+          path: /spec/template/spec/containers/0/env/2/value
+          value: dragonfly
+
+        - op: replace
+          path: /spec/template/spec/containers/0/env/3/value
+          value: "dragonfly-app.production.svc.cluster.local:6379/0"
 
         - op: replace
           path: /spec/template/spec/containers/resources
